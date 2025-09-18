@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Student Attendance Detail{% endblock %}
+
+{% block content %}
+<div class="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <!-- Attendance Table -->
+  <div class="bg-white shadow-md rounded-xl overflow-hidden border border-gray-200">
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead>
+          <tr class="bg-table-row text-white">
+            <th class="py-4 px-6 text-left font-semibold uppercase text-sm tracking-wider">
+              Date
+            </th>
+            <th class="py-4 px-6 text-left font-semibold uppercase text-sm tracking-wider">
+              Status
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-gray-100">
+          {% for record in records %}
+            <tr class="hover:bg-gray-50 transition-colors">
+              <td class="py-4 px-6 text-gray-800">{{ record.date }}</td>
+              <td class="py-4 px-6">
+                {% if record.status == 'Present' %}
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+                    Present
+                  </span>
+                {% else %}
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-700">
+                    Absent
+                  </span>
+                {% endif %}
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="2" class="py-6 px-6 text-center text-gray-500">
+                No attendance records found.
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Back Link -->
+  <div class="mt-6">
+    <a href="{% url 'attendance' %}" 
+       class="inline-flex items-center text-purple-700 font-medium hover:underline">
+      <i class="fas fa-arrow-left mr-2"></i> Back to Attendance
+    </a>
+  </div>
+
+</div>
+{% endblock %}

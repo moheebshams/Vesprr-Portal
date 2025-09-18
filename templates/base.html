@@ -64,38 +64,37 @@
 </head>
 
 <body class="m-0 bg-gray-50 text-gray-800">
-  <div class="flex min-h-screen flex-col md:flex-row">
 
+  <div class="flex min-h-screen">
     <!-- Sidebar -->
-    <nav class="w-full md:w-64 bg-gradient-b text-white flex md:flex-col md:items-stretch md:py-6 shadow-lg">
-      <h2 class="hidden md:block text-center mb-10 mt-2 text-xl font-semibold tracking-wide text-purple-100">Vesprr
-        Portal</h2>
-      <div class="flex-1 flex md:flex-col justify-around md:justify-start w-full space-y-1 md:px-3">
+    <nav class="hidden md:block fixed top-0 left-0 h-screen w-64 bg-gradient-b text-white flex-col items-stretch py-6 shadow-lg z-40">
+      <h2 class="text-center mb-10 mt-2 text-xl font-semibold tracking-wide text-purple-100">Vesprr Portal</h2>
+      <div class="flex-1 flex flex-col justify-start w-full space-y-1 px-3">
         <a href="{% url 'home' %}"
-          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center {% if request.resolver_match.url_name == 'home' %}active-nav{% endif %}">
+          class="nav-item flex items-center w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 text-left {% if request.resolver_match.url_name == 'home' %}active-nav{% endif %}">
           <i class="fas fa-home w-5 mr-3"></i> Dashboard
         </a>
         <a href="{% url 'courses' %}"
-          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center {% if request.resolver_match.url_name == 'courses' %}active-nav{% endif %}">
+          class="nav-item flex items-center w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 text-left {% if request.resolver_match.url_name == 'courses' %}active-nav{% endif %}">
           <i class="fas fa-book-open w-5 mr-3"></i> Courses
         </a>
         <a href="{% url 'attendance' %}"
-          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center {% if request.resolver_match.url_name == 'attendance' %}active-nav{% endif %}">
+          class="nav-item flex items-center w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 text-left {% if request.resolver_match.url_name == 'attendance' %}active-nav{% endif %}">
           <i class="fas fa-clipboard-check w-5 mr-3"></i> Attendance
         </a>
         <a href="#"
-          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center">
+          class="nav-item flex items-center w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 text-left">
           <i class="fas fa-user w-5 mr-3"></i> Profile
         </a>
         <a href="/logout/"
-          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center mt-4">
+          class="nav-item flex items-center w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 text-left mt-4">
           <i class="fas fa-sign-out-alt w-5 mr-3"></i> Logout
         </a>
       </div>
     </nav>
 
-    <!-- Main -->
-    <div class="flex-1 flex flex-col">
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col ml-0 md:ml-64 max-h-screen overflow-y-auto">
 
       <!-- Header -->
       <div class="sticky top-0 z-50 flex items-center justify-between bg-gradient-r px-6 py-4 shadow-md">
