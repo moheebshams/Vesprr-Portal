@@ -1,7 +1,105 @@
 {% extends "base.html" %}
-<title>{% block title %}Courses{% endblock %}</title>
+{% block title %}Courses - Learning Platform{% endblock %}
 
 {% block content %}
-<h2 class="text-2xl font-semibold mb-4">Courses</h2>
-<p class="text-gray-700">This is the courses page.</p>
+<div class="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <!-- Header Section -->
+  <!-- <div class="text-center mb-10">
+<h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight 
+           bg-gradient-to-r from-indigo-600 to-purple-700 
+           bg-clip-text text-transparent mb-6">
+  Available Courses
+</h1>
+  </div> -->
+
+  <!-- Courses Table -->
+  <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="min-w-full">
+        <!-- Table Head -->
+        <thead>
+          <tr class="bg-table-row text-white">
+            <th class="py-5 px-6 text-left font-semibold uppercase text-sm">
+              <i class="fas fa-bookmark mr-2"></i> Course Name
+            </th>
+            <th class="py-5 px-6 text-center font-semibold uppercase text-sm">
+              <i class="fas fa-clock mr-2"></i> Duration
+            </th>
+            <th class="py-5 px-6 text-center font-semibold uppercase text-sm">
+              <i class="fas fa-bullseye mr-2"></i> Goal
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Table Body -->
+        <tbody class="divide-y divide-gray-200">
+          <tr class="hover:bg-blue-50 transition-colors group">
+            <td class="py-5 px-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mr-4">
+                  <i class="fab fa-python text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">Python Basics</h4>
+                  <p class="text-sm text-gray-600">Beginner Level</p>
+                </div>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-center text-gray-700">
+              <div class="flex items-center justify-center">
+                <i class="fas fa-calendar-alt mr-2 text-indigo-500"></i> 4 weeks
+              </div>
+            </td>
+            <td class="py-5 px-6 text-center text-gray-700">Learn Python fundamentals</td>
+            
+          </tr>
+
+          <tr class="hover:bg-blue-50 transition-colors group">
+            <td class="py-5 px-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mr-4">
+                  <i class="fas fa-code text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">Web Development</h4>
+                  <p class="text-sm text-gray-600">Intermediate Level</p>
+                </div>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-center text-gray-700">
+              <div class="flex items-center justify-center">
+                <i class="fas fa-calendar-alt mr-2 text-indigo-500"></i> 6 weeks
+              </div>
+            </td>
+            <td class="py-5 px-6 text-center text-gray-700">Build web applications</td>
+            
+          </tr>
+
+          <tr class="hover:bg-blue-50 transition-colors group">
+            <td class="py-5 px-6">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-green-100 text-green-600 flex items-center justify-center mr-4">
+                  <i class="fas fa-chart-bar text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">Data Science</h4>
+                  <p class="text-sm text-gray-600">Advanced Level</p>
+                </div>
+              </div>
+            </td>
+            <td class="py-5 px-6 text-center text-gray-700">
+              <div class="flex items-center justify-center">
+                <i class="fas fa-calendar-alt mr-2 text-indigo-500"></i> 8 weeks
+              </div>
+            </td>
+            <td class="py-5 px-6 text-center text-gray-700">Analyze data with Python</td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</div>
+
 {% endblock %}
