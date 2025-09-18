@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +10,50 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          backgroundImage: {
+            'gradient-b': 'linear-gradient(to bottom, #6b21a8, #6b21a8)',
+            'gradient-r': 'linear-gradient(to right, #7e22ce, #4f46e5)',
+          },
+        },
+      },
+    }
+
+  </script>
+
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
       letter-spacing: -0.025em;
     }
+
     .nav-item {
       transition: all 0.2s ease;
     }
+
     .nav-item:hover {
       transform: translateX(4px);
     }
+
     .active-nav {
       background: rgba(255, 255, 255, 0.1);
       border-left-color: rgb(196 181 253) !important;
@@ -33,26 +61,33 @@
   </style>
 
 </head>
+
 <body class="m-0 bg-gray-50 text-gray-800">
   <div class="flex min-h-screen flex-col md:flex-row">
 
     <!-- Sidebar -->
-    <nav class="w-full md:w-64 bg-gradient-to-b from-purple-800 to-purple-900 text-white flex md:flex-col md:items-stretch md:py-6 shadow-lg">
-      <h2 class="hidden md:block text-center mb-10 mt-2 text-xl font-semibold tracking-wide text-purple-100">Vesprr Portal</h2>
+    <nav class="w-full md:w-64 bg-gradient-b text-white flex md:flex-col md:items-stretch md:py-6 shadow-lg">
+      <h2 class="hidden md:block text-center mb-10 mt-2 text-xl font-semibold tracking-wide text-purple-100">Vesprr
+        Portal</h2>
       <div class="flex-1 flex md:flex-col justify-around md:justify-start w-full space-y-1 md:px-3">
-        <a href="{% url 'home' %}" class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center active-nav">
+        <a href="{% url 'home' %}"
+          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center {% if request.resolver_match.url_name == 'home' %}active-nav{% endif %}">
           <i class="fas fa-home w-5 mr-3"></i> Dashboard
         </a>
-        <a href="{% url 'courses' %}" class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center">
+        <a href="{% url 'courses' %}"
+          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center {% if request.resolver_match.url_name == 'courses' %}active-nav{% endif %}">
           <i class="fas fa-book-open w-5 mr-3"></i> Courses
         </a>
-        <a href="{% url 'attendance' %}" class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center">
+        <a href="{% url 'attendance' %}"
+          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center {% if request.resolver_match.url_name == 'attendance' %}active-nav{% endif %}">
           <i class="fas fa-clipboard-check w-5 mr-3"></i> Attendance
         </a>
-        <a href="#" class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center">
+        <a href="#"
+          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center">
           <i class="fas fa-user w-5 mr-3"></i> Profile
         </a>
-        <a href="/logout/" class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center mt-4">
+        <a href="/logout/"
+          class="nav-item flex items-center md:w-full px-6 py-4 font-medium rounded-lg border-l-4 border-transparent hover:bg-purple-700/50 hover:border-purple-300 md:text-left text-center mt-4">
           <i class="fas fa-sign-out-alt w-5 mr-3"></i> Logout
         </a>
       </div>
@@ -62,23 +97,31 @@
     <div class="flex-1 flex flex-col">
 
       <!-- Header -->
-      <div class="sticky top-0 z-50 flex items-center justify-between bg-gradient-to-r from-purple-700 to-indigo-600 px-6 py-4 shadow-md">
+      <div class="sticky top-0 z-50 flex items-center justify-between bg-gradient-r px-6 py-4 shadow-md">
         <div class="flex justify-center">
           <h1 class="text-white text-xl font-semibold">{{ page_title|default:'Dashboard' }}</h1>
         </div>
         <div class="flex items-center gap-4">
-          <div class="h-10 w-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-medium">
-            {{ request.user.username|first|default:'U'|upper }}
-          </div>
+          <!-- Socials icons -->
+          <a href="#" class="text-white hover:text-purple-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-white hover:text-purple-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-white hover:text-purple-300">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
         </div>
       </div>
 
       <!-- Page Content -->
-    {% block content %}
-     
-    {% endblock %}
+      {% block content %}
+
+      {% endblock %}
 
     </div>
   </div>
 </body>
+
 </html>
